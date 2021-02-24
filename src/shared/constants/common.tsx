@@ -1,0 +1,1 @@
+export const COMMON_CONSTANT = 'COMMON_CONSTANT'; 
