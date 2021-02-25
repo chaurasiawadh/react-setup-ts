@@ -1,15 +1,23 @@
-import { takeLatest } from 'redux-saga/effects';
+import { takeLatest, put } from 'redux-saga/effects';
+import { fetchGetApiDataExample } from 'store/actions/example';
 import SendRequest from '../../shared/services/sendRequest.service';
 import actionTypes from '../types/exampleTypes';
 
 const sendRequest = SendRequest.instance;
 
 function* getAPICallSagaExample(): any {
-  const url = 'get_api_url'
+  console.log('getAPICallSagaExample');
+
+  const url = 'https://jsonplaceholder.typicode.com/todos';
   const response: any = yield sendRequest.MakeAPICall({ url });
+  console.log('response', response);
+
+  yield put(fetchGetApiDataExample(response));
 }
 
 function* postAPICallSagaExample({ payload }: any): Generator {
+  console.log('postAPICallSagaExample');
+
   const requestJSON = {
     // payload
   };

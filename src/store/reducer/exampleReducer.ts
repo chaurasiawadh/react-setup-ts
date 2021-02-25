@@ -6,16 +6,17 @@ const initialState = {
   fakeData: {}
 };
 
-const getApiCallData = (state: any): any =>
+const getApiCallData = (state: any): any => {
+  console.log('state', state);
   updateObject<any, any>(state, {});
+}
 
 const postApiCallData = (state: any): any =>
   updateObject<any, any>(state, {});
 
-const reducer: Reducer<any> = (
-  state: any = initialState,
-  action: AnyAction,
-): any | any => {
+const reducer: Reducer<any> = (state: any = initialState, action: AnyAction): any | any => {
+  console.log('aaaaaaaaaaaaa', action);
+
   switch (action.type) {
     case actionTypes.GET_API_CALL: return getApiCallData(state);
     case actionTypes.POST_API_CALL: return postApiCallData(state);

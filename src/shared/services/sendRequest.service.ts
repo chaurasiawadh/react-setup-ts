@@ -30,7 +30,7 @@ class SendRequest {
       requestBody = data.body;
     }
 
-    const promise = await fetch(process.env.REACT_APP_BASE_URL + data.url, {
+    const promise = await fetch(data.url, {
       method: data.body ? 'POST' : 'GET',
       headers: new Headers({
         AccessToken: '',   //cookies.get('access_token'),
