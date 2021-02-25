@@ -7,7 +7,7 @@ export const fetchGetApiCallExample = (): Action<any> => {
 };
 
 export const fetchGetApiDataExample = (payload: any): Action<any> => {
-  return updateAction(actionTypes.GET_API_CALL, payload);
+  return updateAction(actionTypes.GET_API_DATA, payload);
 };
 
 

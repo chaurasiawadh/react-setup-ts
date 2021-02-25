@@ -6,12 +6,8 @@ import actionTypes from '../types/exampleTypes';
 const sendRequest = SendRequest.instance;
 
 function* getAPICallSagaExample(): any {
-  console.log('getAPICallSagaExample');
-
   const url = 'https://jsonplaceholder.typicode.com/todos';
   const response: any = yield sendRequest.MakeAPICall({ url });
-  console.log('response', response);
-
   yield put(fetchGetApiDataExample(response));
 }
 

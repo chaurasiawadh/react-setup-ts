@@ -3,25 +3,22 @@ import actionTypes from '../types/exampleTypes';
 import { updateObject } from '../../utils/utility';
 
 const initialState = {
-  fakeData: {}
+  fakeDataList: []
 };
-
-const getApiCallData = (state: any): any => {
-  console.log('state', state);
-  updateObject<any, any>(state, {});
-}
 
 const postApiCallData = (state: any): any =>
   updateObject<any, any>(state, {});
 
-const reducer: Reducer<any> = (state: any = initialState, action: AnyAction): any | any => {
-  console.log('aaaaaaaaaaaaa', action);
-
+const exampleReducer: Reducer<any> = (state: any = initialState, action: AnyAction): any | any => {
   switch (action.type) {
-    case actionTypes.GET_API_CALL: return getApiCallData(state);
+    case actionTypes.GET_API_DATA: return {
+      ...state,
+      fakeDataList: action.payload,
+    };
     case actionTypes.POST_API_CALL: return postApiCallData(state);
     default: return state;
   }
 };
 
-export { reducer as exampleReducer };
+export default exampleReducer;
+
