@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import authSaga from './sagas/authSagas';
+import apiCallSaga from './sagas/apiCallSaga';
 import { fork, all } from 'redux-saga/effects';
 
 export interface RootState {
@@ -15,6 +15,6 @@ export const createRootReducer = (): any =>
 export function* rootSaga(): Generator {
   yield all(
     [
-      fork(authSaga),
+      fork(apiCallSaga),
     ]);
 }

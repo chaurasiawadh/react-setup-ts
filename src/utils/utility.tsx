@@ -1,6 +1,5 @@
 import moment from 'moment';
 import { ReactNode } from 'react';
-// import { CONSULTATION_TYPES } from '../shared/constants/common';
 
 export function updateObject<I, P>(oldObject: I, updatedProperties: P): I {
   return {
@@ -137,9 +136,6 @@ export const CalculateDiscountPercentage = (price: number, discountedPrice: numb
   return Math.round(((price - discountedPrice) / price) * 100 || 0);
 };
 
-export const GetFirstElement = (array: any[]): any => {
-  return _.first(array) as any;
-};
 export const getMobileFormat = (mobile: string): string => {
   if (mobile && typeof mobile === 'string') {
     mobile = mobile.toString();

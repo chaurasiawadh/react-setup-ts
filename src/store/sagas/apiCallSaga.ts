@@ -2,21 +2,21 @@ import { takeLatest } from 'redux-saga/effects';
 import SendRequest from '../../shared/services/sendRequest.service';
 import actionTypes from '../types/exampleTypes';
 
+const sendRequest = SendRequest.instance;
+
 function* getAPICallSagaExample(): any {
   const url = 'get_api_url'
-  const sendRequest = SendRequest.instance;
-  const response: any = yield SendRequest.instance.get<any>(url);
+  const response: any = yield sendRequest.MakeAPICall({ url });
 }
 
 function* postApiCallSagaExample({ payload }: any): Generator {
-  const sendRequest = SendRequest.instance;
   const requestJSON = {
     // payload
   };
 
   const url = '${GLOBAL_URL}/Register';
   try {
-    const response: any = yield sendRequest.post<any, any>(url, requestJSON);
+    const response: any = yield sendRequest.MakeAPICall({ url, body: requestJSON });
     return response;
   } catch (e) {
     console.error(e);
