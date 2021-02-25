@@ -1,28 +1,18 @@
 import React, { ReactElement, Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import PrivateRoutes from './PrivateRoutes';
-import { RootState } from '../../store';
-import Main from '../../layout/Main';
 import PublicRoutes from './PublicRoutes';
 import Spinner from '../../shared/components/Spinner';
-import { getConfirmation } from '../../utils/routeUtility';
 
 const RouteLoader = (): ReactElement | null => {
-  const isAuthenticated: boolean = useSelector(({ auth }: RootState): boolean => {
-    return auth.token !== null;
-  });
 
   return (
     <React.Fragment>
-      <Router basename="/" getUserConfirmation={getConfirmation}>
+      <Router basename="/">
         <Suspense fallback={<Spinner />}>
-          {isAuthenticated ? (
-            <Main>
+          <PublicRoutes />
+          {/* <Main>
               <PrivateRoutes />
-            </Main>
-          ) : <PublicRoutes />
-          }
+            </Main> */}
         </Suspense>
       </Router>
     </React.Fragment>

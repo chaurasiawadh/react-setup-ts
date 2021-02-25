@@ -9,7 +9,7 @@ function* getAPICallSagaExample(): any {
   const response: any = yield sendRequest.MakeAPICall({ url });
 }
 
-function* postApiCallSagaExample({ payload }: any): Generator {
+function* postAPICallSagaExample({ payload }: any): Generator {
   const requestJSON = {
     // payload
   };
@@ -25,7 +25,7 @@ function* postApiCallSagaExample({ payload }: any): Generator {
 
 export function* watchApiCallSagaExample(): any {
   yield takeLatest(actionTypes.GET_API_CALL, getAPICallSagaExample)
-  yield takeLatest(actionTypes.POST_API_CALL, postApiCallSagaExample);
+  yield takeLatest(actionTypes.POST_API_CALL, postAPICallSagaExample);
 }
 
 export default watchApiCallSagaExample;

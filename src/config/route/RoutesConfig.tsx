@@ -4,14 +4,14 @@ import { RouteType } from '../../shared/models/route.models';
 const RoutesConfig: RouteType = {
   publicRoutes: [
     {
-      path: '/signup',
+      path: '/login',
       isPublic: true,
-      // component: lazy((): any => import('path signUp')),
+      component: lazy((): any => import('../../modules/login/Login')),
     },
     {
       path: '/',
       isPublic: true,
-      // component: lazy((): any => import('Login Component')),
+      component: lazy((): any => import('../../modules/home/Home')),
     },
   ],
   privateRoutes: [
