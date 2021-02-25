@@ -32,6 +32,9 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
+  "files.associations": {
+    "tslint.json": "jsonc"
+  },
   "include": [
     "src/**/*.ts"
   ],
