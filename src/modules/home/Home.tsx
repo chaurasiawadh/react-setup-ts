@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {fetchGetApiCallExample} from '../../store/actions/example';
+import {fetchGetApiCallExample, fetchPostApiCallExample} from '../../store/actions/example';
 
 const HomeComponent = () => {
     const dispatch = useDispatch();
@@ -8,9 +8,18 @@ const HomeComponent = () => {
     console.log('store', store);    
 
     useEffect(()=>{
-        dispatch(fetchGetApiCallExample())
+        // dispatch(fetchGetApiCallExample());
+        postAPICall();
     },[]);
 
+    const postAPICall =() => {
+        const requestJSON = {
+            title: 'foo',
+            body: 'bar',
+            userId: 1,
+        }
+        dispatch(fetchPostApiCallExample(requestJSON));
+    }
 
     return (
         <div>

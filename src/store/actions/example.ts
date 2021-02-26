@@ -10,7 +10,11 @@ export const fetchGetApiDataExample = (payload: any): Action<any> => {
   return updateAction(actionTypes.GET_API_DATA, payload);
 };
 
-
-export const fetchPostApiCallExample = (payload: any): Action<any> => {
-  return updateAction(actionTypes.POST_API_CALL, payload);
+export const fetchPostApiCallExample = (requestJSON: any): Action<any> => {
+  return updateAction(actionTypes.POST_API_CALL, requestJSON);
 };
+
+export const fetchPostApiDataExample = (postResponseData: any): Action<any> => {
+  return updateAction(actionTypes.POST_API_DATA, postResponseData);
+};
+

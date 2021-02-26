@@ -1,27 +1,25 @@
 import { takeLatest, put } from 'redux-saga/effects';
-import { fetchGetApiDataExample } from 'store/actions/example';
+import { GET_JSON_PLACEHOLDER_URL, POST_JSON_PLACEHOLDER_URL } from 'shared/constants/urls';
+import { fetchGetApiDataExample, fetchPostApiDataExample } from 'store/actions/example';
 import SendRequest from '../../shared/services/sendRequest.service';
 import actionTypes from '../types/exampleTypes';
 
 const sendRequest = SendRequest.instance;
 
 function* getAPICallSagaExample(): any {
-  const url = 'https://jsonplaceholder.typicode.com/todos';
-  const response: any = yield sendRequest.MakeAPICall({ url });
-  yield put(fetchGetApiDataExample(response));
+  const response: any = yield sendRequest.MakeAPICall({ url: GET_JSON_PLACEHOLDER_URL });
+  if (response) {
+    yield put(fetchGetApiDataExample(response));
+  }
 }
 
 function* postAPICallSagaExample({ payload }: any): Generator {
-  console.log('postAPICallSagaExample');
 
-  const requestJSON = {
-    // payload
-  };
-
-  const url = '${GLOBAL_URL}/Register';
   try {
-    const response: any = yield sendRequest.MakeAPICall({ url, body: requestJSON });
-    return response;
+    const response: any = yield sendRequest.MakeAPICall({ url: POST_JSON_PLACEHOLDER_URL, body: payload });
+    if (response) {
+      yield put(fetchPostApiDataExample(response));
+    }
   } catch (e) {
     console.error(e);
   }
